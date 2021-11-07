@@ -50,6 +50,7 @@
   --secondary-bg-colour: #272727;
   --scroll-thumb-colour: var(--primary-colour);
   --scrollbar-colour: #286197;
+  box-sizing: border-box;
   scrollbar-color: var(--scrollbar-colour) var(--scroll-thumb-colour);
   font-family: "Montserrat", sans-serif;
 }
@@ -75,8 +76,19 @@ body {
   font-weight: 900;
 }
 
+a, button {
+  line-height: 1;
+}
+
 a {
   color: inherit;
+}
+
+button {
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  border-width: 0;
 }
 
 h1 {
@@ -85,10 +97,6 @@ h1 {
 
 img {
   max-width: 100%;
-}
-
-button {
-  cursor: pointer;
 }
 
 .main {
@@ -185,13 +193,10 @@ button {
 }
 .carousel__btn {
   background-color: var(--primary-colour);
-  padding: 1ch;
-  border-width: 0;
   border-radius: 50%;
-  width: 2ch;
+  width: 2.5em;
   aspect-ratio: 1/1;
   position: absolute;
-  z-index: 10;
   color: inherit;
 }
 .carousel__btn--right {
