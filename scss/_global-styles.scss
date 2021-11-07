@@ -17,7 +17,7 @@
     font-family: "Montserrat", sans-serif;
 }
 
-@media only screen and (min-width: 1500px) {
+@media only screen and (min-width: 1700px) {
     :root {
         font-size: 1.5em;
     }
@@ -39,7 +39,8 @@ body {
     font-weight: 900;
 }
 
-a,button{
+a,
+button {
     line-height: 1;
 }
 
@@ -61,4 +62,3 @@ h1 {
 img {
     max-width: 100%;
 }
-
