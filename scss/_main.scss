@@ -1,0 +1,30 @@
+.main{
+    padding-top: 3em;
+    &__video{
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    
+    &__list {
+        list-style-type: none;
+        padding-left: 0;
+        display: grid;
+        justify-content: center;
+        text-align: center;
+        column-gap: 1ch;
+        row-gap: 1em;
+    }
+    
+    &__link {
+        display: inline-block;
+        background-color: var(--primary-colour);
+        text-decoration: none;
+        padding: 1ch 2ch;
+        border-radius: 1.5ch;
+        width: 100%;
+        &:hover{
+            animation: shadow-inset-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+    }
+}

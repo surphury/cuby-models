@@ -1,0 +1,9 @@
+.footer{
+    background-color: var(--secondary-bg-colour);
+    display: flex;
+    justify-content: center;
+    padding-block: 1.5em;
+    &__logo{
+        max-height: 3em;
+    }
+}

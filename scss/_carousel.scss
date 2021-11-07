@@ -1,0 +1,38 @@
+.carousel {
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 31.25em;
+    &__container{
+        overflow: hidden;
+    }
+    &__images {
+        --counter: 0;
+        transform: translateX(calc(-100% * var(--counter)));
+        display: flex;
+        transition: transform 1s;
+    }
+    &__btn {
+        background-color: var(--primary-colour);
+        padding: 1ch;
+        border-width: 0;
+        border-radius: 50%;
+        width: 2ch;
+        aspect-ratio: 1 / 1;
+        position: absolute;
+        z-index: 10;
+        color: inherit;
+        &--right {
+            right: 0;
+            transform: translate(50%);
+        }
+        &--left{
+            transform: translate(-50%);
+        }
+        &:hover {
+            background-color: #C4C4C4;
+        }
+    }
+}

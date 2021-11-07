@@ -1,0 +1,54 @@
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+:root {
+    --bg-colour: #363636;
+    --txt-colour: #fff;
+    --primary-colour: #0085ff;
+    --secondary-bg-colour: #272727;
+    --scroll-thumb-colour: var(--primary-colour);
+    --scrollbar-colour: #286197;
+    scrollbar-color: var(--scrollbar-colour) var(--scroll-thumb-colour);
+    font-family: "Montserrat", sans-serif;
+}
+
+@media only screen and (min-width: 1500px) {
+    :root {
+        font-size: 1.5em;
+    }
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-thumb-colour);
+    border-radius: 1em;
+}
+
+::-webkit-scrollbar {
+    background-color: var(--scrollbar-colour);
+}
+
+body {
+    background-color: var(--bg-colour);
+    color: var(--txt-colour);
+    line-height: 1.5;
+    font-weight: 900;
+}
+
+a {
+    color: inherit;
+}
+
+h1 {
+    content-visibility: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+button {
+    cursor: pointer;
+}
