@@ -9,13 +9,15 @@
     &__navbar {
         margin-right: auto;
         margin-left: auto;
-        width: 60%;
+        /* width: 60%; */
+        /* flex-grow: 1; */
     }
     &__list {
         list-style-type: none;
         padding-left: 0;
         display: flex;
         justify-content: space-evenly;
+        column-gap: 1em;
     }
     &__link {
         display: inline-block;
@@ -26,6 +28,12 @@
         &:hover{
             animation: shadow-inset-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
         }
+    }
+}
+
+@media only screen and (max-width:720px) {
+    .header{
+        font-size: clamp(0.4rem, 1.8vw + 0.1rem, 1rem);
     }
 }
 

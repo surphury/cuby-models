@@ -1,11 +1,11 @@
 .section {
     --bg-colour: var(--primary-colour);
     background-color: var(--bg-colour);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     padding: 2em 4em;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
     align-items: center;
-    justify-items: center;
     
     &__text,
     &__header,
@@ -40,5 +40,10 @@
         display: grid;
         grid-template-rows: 1fr 5fr 1fr;
         height: 80%;
+    }
+    
+    & > *{
+        flex-basis: 14rem;
+        flex-grow: 1;
     }
 }
