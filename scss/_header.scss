@@ -2,9 +2,11 @@
     background-color: var(--secondary-bg-colour);
     display: flex;
     align-items: center;
-    padding-inline: 2em;
+    justify-content: center;
     &__logo {
         max-width: 2.5em;
+        position: absolute;
+        left: 1em;
     }
     &__navbar {
         margin-right: auto;
