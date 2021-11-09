@@ -15,7 +15,7 @@
     box-sizing: border-box;
     scroll-padding-top: 2em;
     scroll-behavior: smooth;
-    scrollbar-color: var(--scrollbar-colour) var(--scroll-thumb-colour);
+    scrollbar-color:var(--scroll-thumb-colour) var(--scrollbar-colour);
     font-family: "Montserrat", sans-serif;
 }
 
@@ -57,10 +57,11 @@ button {
     border-width: 0;
 }
 
-h1 {
-    content-visibility: hidden;
-}
-
 img {
     max-width: 100%;
+}
+
+.title{
+    content-visibility: hidden;
+    display: none;
 }
