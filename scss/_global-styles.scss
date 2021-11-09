@@ -11,8 +11,10 @@
     --secondary-bg-colour: #272727;
     --scroll-thumb-colour: var(--primary-colour);
     --scrollbar-colour: #286197;
+
     box-sizing: border-box;
 
+    scroll-behavior: smooth;
     scrollbar-color: var(--scrollbar-colour) var(--scroll-thumb-colour);
     font-family: "Montserrat", sans-serif;
 }
