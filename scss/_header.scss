@@ -9,8 +9,6 @@
     &__navbar {
         margin-right: auto;
         margin-left: auto;
-        /* width: 60%; */
-        /* flex-grow: 1; */
     }
     &__list {
         list-style-type: none;
@@ -27,6 +25,14 @@
         border-radius: 1.5ch;
         &:hover{
             animation: shadow-inset-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+        &--icon{
+            min-width: 4em;
+            height: 100%;
+            background-image: url(../assets/images/header-icon.svg);
+            background-size: 3em;
+            background-repeat: no-repeat;
+            background-position: center;
         }
     }
 }
