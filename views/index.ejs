@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft - Custom Models</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <!-- CSS -->
+    <!-- JS -->
+    <script src="slider.js" defer></script>
+    <!-- JS -->
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/572b6f1886.js" crossorigin="anonymous"></script>
+    <!-- fonts -->
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./assets/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./assets/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./assets/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./assets/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./assets/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./assets/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./assets/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./assets/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- favicon -->
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="title">Minecraft - Custom Models</h1>
+
+        <img class="header__logo" src="assets/images/cuby-models.png" alt="Cuby Models logo">
+        <nav class="header__navbar">
+            <ul class="header__list">
+                <% const {links, texts} = data.headerAnchors %>
+                
+                <% for (let i = 0; i < links.length; i++) { %>
+                    <li class="header__item">
+                        <a href="<%=links[i]%>" class="header__link"><%=texts[i]%></a>
+                    </li>
+                <% } %>
+                <li class="header__item">
+                    <a class="header__link header__link--icon" target="_blank" href="./partners/"></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div id="carousel" class="carousel">
+            <div class="carousel__container">
+                <div class="carousel__images">
+                    <% data.YTlinks.forEach((link)=> { %>
+                        <% const iframeLink=link.substring(link.indexOf('watch?v=') + 8); %>
+                        <iframe class="carousel__content" src="https://www.youtube.com/embed/<%= iframeLink %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <% }); %>
+                </div>
+            </div>
+            <button class="carousel__btn carousel__btn--left" title="Previous video">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel__btn carousel__btn--right" title="Next video">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        <nav class="main__navbar">
+            <ul class="main__list">
+                <li class="main__item">
+                    <a href="#" class="main__link">MythicMobs</a>
+                </li>
+                <li class="main__item">
+                    <a href="#" class="main__link">McModels</a>
+                </li>
+                <li class="main__item">
+                    <a  class="main__link" target="_blank" href="https://sketchfab.com/cubymodels" title="Sketchfab Cuby Models">Sketchfab</a>
+                </li>
+            </ul>
+        </nav>
+        <section class="section">
+            <div id="aboutUs" class="section__container">
+                <header class="section__header">
+                    <h2 class="section__title">About Us</h2>
+                </header>
+                <p class="section__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, id natus
+                    commodi tenetur officia quasi voluptate explicabo molestiae et, quod doloremque numquam repudiandae
+                    iste facilis. Eveniet id illum nostrum, porro asperiores odit distinctio adipisci quos ut veritatis?
+                    Alias beatae expedita ducimus enim veniam delectus libero quaerat neque ex iste, odit eum vel illum
+                    dolorum et sequi cum, iusto, a soluta!</p>
+                <a href="https://discord.gg/BVkaXyZ6JK" target="_blank" class="section__link" title="Discord">
+                    <i class="fab fa-discord"></i>
+                </a>
+            </div>
+            <img src="assets/images/cuby-models-dark.svg" alt="Dark Cuby Models logo" class="section__logo">
+        </section>
+    </main>
+    <footer class="footer">
+        <img class="footer__logo" src="assets/images/cm.png" alt="Cuby Models">
+    </footer>
+</body>
+
+</html>
