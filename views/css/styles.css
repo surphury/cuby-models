@@ -203,7 +203,7 @@ img {
   display: flex;
   align-items: center;
   position: relative;
-  max-width: min(calc(100% - 3.5em), 31.25em);
+  width: min(calc(100% - 3.5em), 31.25em);
 }
 .carousel__container {
   overflow: hidden;
@@ -213,6 +213,11 @@ img {
   transform: translateX(calc(-100% * var(--counter)));
   display: flex;
   transition: transform 1s;
+}
+.carousel__content {
+  aspect-ratio: 16/9;
+  flex-shrink: 0;
+  flex-basis: 100%;
 }
 .carousel__btn {
   background-color: var(--primary-colour);
@@ -231,6 +236,44 @@ img {
 }
 .carousel__btn:hover {
   background-color: #C4C4C4;
+}
+
+.form {
+  padding: 2em;
+  max-width: min(95vw, 60ch);
+  margin-inline: auto;
+  border-radius: 1em;
+  background-color: var(--secondary-bg-colour);
+}
+.form__title {
+  text-align: center;
+  color: var(--primary-colour);
+}
+.form__input {
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: var(--secondary-bg-colour);
+  color: inherit;
+  width: 100%;
+  border: 1px solid var(--primary-colour);
+}
+.form__input:focus-visible {
+  outline-width: 0;
+}
+.form__input:focus-visible::placeholder {
+  color: var(--scrollbar-colour);
+}
+.form :where(.form__input + .form__input) {
+  margin-top: 1em;
+}
+.form__button {
+  background-color: var(--primary-colour);
+  width: 100%;
+  margin-top: 1em;
+  padding-block: 1ch;
+}
+.form__button:disabled {
+  opacity: 0.5;
 }
 
 /*# sourceMappingURL=styles.css.map */
