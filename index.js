@@ -2,15 +2,19 @@ const express = require('express'),
     cors = require('cors'),
     fs = require('fs');
 
+
 const app = express();
 
 app.use(express.json(), cors(), express.static(__dirname + '/views/'));
+app.set('view engine', 'ejs');
 
 let ips = JSON.parse(fs.readFileSync(`${__dirname}/ips.json`));
 
-app.get('/data', (req, res) => {
-    res.sendFile(`${__dirname}/data.json`);
-});
+const data = JSON.parse(fs.readFileSync(`${__dirname}/data.json`));
+
+app.get('/', (req, res) => res.render('./index.ejs',{data}));
+
+app.get('/data', (req, res) => res.sendFile(`${__dirname}/data.json`));
 
 app.post('/data', (req, res) => {
     fs.writeFile(`${__dirname}/data.json`, JSON.stringify(req.body), (err) => {
@@ -24,11 +28,11 @@ app.post('/data', (req, res) => {
 
 
 app.get('/admin', (req, res) => {
-    if (ips.includes(req.socket.remoteAddress)) {
+    if (ips.includes(req.socket.remoteAddress))
         res.sendFile(__dirname + '/views/admin.html');
-    } else {
+    else
         res.sendFile(__dirname + '/views/login/index.html');
-    }
+
 });
 
 app.post('/admin', (req, res) => {
@@ -45,5 +49,5 @@ app.post('/admin', (req, res) => {
     res.end();
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 80;
 app.listen(PORT, () => console.log('Listening in Port ' + PORT));
