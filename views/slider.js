@@ -23,6 +23,4 @@
     $carousel.slide = slide();
     $rightButton.addEventListener('click', () => $carousel.slide(true));
     $leftButton.addEventListener('click', () => $carousel.slide());
-
-    getData();
 })();
