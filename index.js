@@ -1,49 +1,66 @@
 const express = require('express'),
-    cors = require('cors'),
-    fs = require('fs');
+	cors = require('cors'),
+	fs = require('fs'),
+	axios = require('axios');
 
 const app = express();
 
 app.use(express.json(), cors(), express.static(__dirname + '/views/'));
 app.set('view engine', 'ejs');
 
-const data = JSON.parse(fs.readFileSync(`${__dirname}/data.json`));
+let data;
+
+const getData = () => data = JSON.parse(fs.readFileSync(`${__dirname}/data.json`));
+
+getData();
 
 app.get('/', (req, res) => res.render('./index.ejs', { data }));
 
 app.get('/data', (req, res) => res.sendFile(`${__dirname}/data.json`));
 
-app.post('/data', (req, res) => {
-    fs.writeFile(`${__dirname}/data.json`, JSON.stringify(req.body), (err) => {
-        console.log((err) ? err : 'Archivo creado');
-        res.statusCode = 403;
-    });
+const APIKey = '3677916352e7a2d6277fb1';
 
-    res.statusCode = 201;
-    res.end();
+const processYTLinks = async (videoLink) => {
+	const APIURL = `https://iframe.ly/api/oembed?url=${videoLink}&api_key=${APIKey}`;
+	const video = await axios.get(APIURL);
+	return video.data.url;
+}
+
+app.post('/data', async (req, res) => {
+	let data = req.body;
+	const { YTlinks } = data;
+
+	for (let i = 0; i < YTlinks.length; i++) {
+		data.YTlinks[i] = await processYTLinks(YTlinks[i]);
+	}
+
+	fs.writeFileSync(`${__dirname}/data.json`, JSON.stringify(data));
+	getData();
+	res.statusCode = 201;
+	res.end();
 });
 
 app.get('/admin', (req, res) => {
-    if (req.headers.cookie === 'logged=true')
-        res.sendFile(__dirname + '/views/admin.html');
-    else
-        res.sendFile(__dirname + '/views/login/index.html');
+	if (req.headers.cookie === 'logged=true')
+		res.sendFile(__dirname + '/views/admin.html');
+	else
+		res.sendFile(__dirname + '/views/login/index.html');
 });
 
 app.post('/admin', (req, res) => {
-    const user = 'nicohrz';
-    const passwd = 'nicohrzuwu';
+	const user = 'nicohrz';
+	const passwd = 'nicohrzuwu';
 
-    const body = req.body;
+	const body = req.body;
 
-    if (user === body.username && passwd === body.password) {
-        res.writeHead(200, {
-            'Set-Cookie': 'logged=true',
-            'Content-Type': 'text/plain'
-          });
-    } else
-        res.sendStatus(401);
-    res.end();
+	if (user === body.username && passwd === body.password) {
+		res.writeHead(200, {
+			'Set-Cookie': 'logged=true',
+			'Content-Type': 'text/plain'
+		});
+	} else
+		res.sendStatus(401);
+	res.end();
 });
 
 const PORT = process.env.PORT || 80;
