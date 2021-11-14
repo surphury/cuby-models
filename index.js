@@ -24,7 +24,7 @@ app.post('/data', (req, res) => {
 });
 
 app.get('/admin', (req, res) => {
-    if (!!req.headers.cookie)
+    if (req.headers.cookie === 'logged=true')
         res.sendFile(__dirname + '/views/admin.html');
     else
         res.sendFile(__dirname + '/views/login/index.html');
