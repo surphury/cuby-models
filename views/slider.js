@@ -7,13 +7,13 @@
         $leftButton = $carousel.querySelector('.carousel__btn--left');
 
     const slide = () => {
-        let counter = 0;
+        let counter = 1;
         const imagesLength = $carouselImages.childElementCount;
 
         return (next = false) => {
-            if (next && counter < imagesLength - 1)
+            if (next && counter < imagesLength)
                 counter++;
-            else if (!next && counter > 0)
+            else if (!next && counter > 1)
                 counter--;
 
             $carouselImages.style.setProperty('--counter', counter);
